@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TodoList - IndexDB</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <style>
+      body {
+        transform: scale(1);
+        overflow: hidden;
+        font-family: "Poppins", serif;
+      }
+    </style>
+    <script src="script.js"></script>
+    <script src="config.js"></script>
+    <script src="read.js"></script>
+    <script src="create.js"></script>
+    <script src="update.js"></script>
+    <script src="delete.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="tailwind.config.js"></script>
+  </head>
+  <body class="p-6 bg-color3 flex items-center justify-center min-h-screen">
+    <div
+      id="modal"
+      class="min-h-screen w-screen hidden inset-0 bg-modal z-50 flex justify-center items-center"
+      onclick="Modal('close')"
+    >
+      <div
+        onclick="event.stopPropagation()"
+        onkeyup="CreateTodo({
+        name: document.getElementById('inputTodo').value,
+      }, 'Todo1')"
+      >
+        <div class="bg-white p-4 rounded-lg shadow-lg">
+          <h1 class="text-center text-xl font-semibold" id="title-modal">
+            <!-- DOM TITLE -->
+          </h1>
+          <input
+            type="text"
+            name="todo"
+            id="inputTodo"
+            class="w-full p-2 mt-4 border border-gray-300 rounded-lg"
+            placeholder="Todo Name"
+          />
+          <div class="flex justify-between mt-4" id="button-area-modal">
+            <!-- BUTTON SUBMIT DOM  -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <main class="max-w-[420px] w-full p-2">
+      <h1
+        class="text-center text-xl font-semibold bg-color2 text-color1 p-4 tracking-wide"
+      >
+        Vanilla Javascript IndexedDB <br />
+        TodoList
+      </h1>
+
+      <div class="relative bg-white mt-4 shadow-lg pt-6 pb-20 px-16">
+        <ul
+          class="[&>li]:flex [&>li]:items-center [&>li]:justify-between [&>li]:mt-4"
+          id="ShowData"
+        >
+          <!-- DOM CONTENT -->
+        </ul>
+        <div class="flex justify-center">
+          <button
+            class="absolute -bottom-4 bg-color2 text-color1 py-3 px-8 text-lg rounded-3xl shadow-lg"
+            onclick="Modal('show', 'create')"
+          >
+            + New Task
+          </button>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
