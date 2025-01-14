@@ -54,8 +54,8 @@ const ShowData = async (nameObjectStore) => {
 };
 
 // Show Data Ketika Halaman di Load
-if (document.readyState !== "loading") ShowData("Todo1");
-else
-  document.addEventListener("DOMContentLoaded", () => {
-    ShowData("Todo1");
-  });
+window.addEventListener("pageshow", (event) => {
+  ShowData("Todo1");
+});
+
+document.addEventListener("DOMContentLoaded", () => ShowData("Todo1"));
