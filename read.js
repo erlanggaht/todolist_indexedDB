@@ -56,6 +56,25 @@ const ShowData = async (nameObjectStore) => {
 // Show Data Ketika Halaman di Load
 window.addEventListener("pageshow", (event) => {
   ShowData("Todo1");
+  if (navigator.onLine) {
+    Toastify({
+      text: "ONLINE",
+      duration: 3000,
+      position: "left",
+      style: {
+        background: "#7ACC59",
+      },
+    }).showToast();
+  } else {
+    Toastify({
+      text: "OFFLINE",
+      duration: 3000,
+      position: "left",
+      style: {
+        background: "#7ACC59",
+      },
+    }).showToast();
+  }
 });
 
 document.addEventListener("DOMContentLoaded", () => ShowData("Todo1"));

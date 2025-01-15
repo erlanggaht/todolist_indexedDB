@@ -80,3 +80,25 @@ function Modal(type, typeCrud, dataId) {
       alert("Tipe tidak valid");
   }
 }
+
+window.addEventListener("online", () => {
+  Toastify({
+    text: "ONLINE",
+    duration: 3000,
+    position: "left",
+    style: {
+      background: "#7ACC59",
+    },
+  }).showToast();
+});
+
+window.addEventListener("offline", () => {
+  Toastify({
+    text: "OFFLINE",
+    duration: 3000,
+    position: "left",
+    style: {
+      background: "red",
+    },
+  }).showToast();
+});
